@@ -1,0 +1,27 @@
+#Dnyaneshwari P.Bhoyar-09
+
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.array([0, 1, 2, 3, 4, 5])
+p = np.array([0.05, 0.15, 0.30, 0.25, 0.15, 0.10])
+print("Sum of Probabilities =", np.sum(p))
+if np.isclose(np.sum(p), 1):
+    print("Valid Probability Distribution")
+else:
+    print("Invalid Probability Distribution")
+expected_value = np.sum(x * p)
+variance = np.sum((x - expected_value) ** 2 * p)
+std_dev = np.sqrt(variance)
+prob_atleast3 = np.sum(p[x >= 3])
+print("Expected Value =", expected_value)
+print("Variance =", variance)
+print("Standard Deviation =", std_dev)
+print("P(X >= 3) =", prob_atleast3)
+plt.figure(figsize=(8, 5))
+plt.bar(x, p, color="skyblue", edgecolor="black")
+plt.xlabel("Number of Croissants Sold")
+plt.ylabel("Probability")
+plt.title("Probability Mass Function (PMF)")
+plt.xticks(x)
+plt.grid(axis="y")
+plt.show()
